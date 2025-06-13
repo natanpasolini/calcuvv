@@ -1,0 +1,45 @@
+.botao-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    background: var(--background-color);
+    border-radius: 50%;
+    transition: 0.5s all ease;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.botao-circle svg {
+    transition: 0.7s all ease;
+}
+
+.botao-circle:hover {
+    background-color: #790977;
+}
+
+.botao-circle:hover svg {
+    fill: white;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    transition: 0.3s all ease;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.botao:hover {
+    background-color: #790977;
+    color: white;
+    border: 2px solid black;
+}
