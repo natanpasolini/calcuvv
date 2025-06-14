@@ -83,7 +83,7 @@ document.addEventListener('mostrandoResultados', () => {
         document.getElementById('notanecpf').style.backgroundColor = 'white'
         document.getElementById('descparapassarnapf').innerHTML = 'Na Prova Final';
         document.getElementById('titulomedsem').innerHTML = 'Média Semestral'
-        notamedsem.innerHTML = medSemestral;
+        notamedsem.innerHTML = medSemestral.toFixed(1);
         notamedsem.style.color = 'white'
         if (medSemestral < 3) {
             resultnotamedsem.innerHTML = 'Reprovado'
@@ -106,7 +106,7 @@ document.addEventListener('mostrandoResultados', () => {
         document.getElementById('notanecpf').innerHTML = notaPassarRec
     } else {
         document.getElementById('titulomedsem').innerHTML = 'Sua nota atual';
-        notamedsem.innerHTML = Number(sessionStorage.getItem('nota1Bimestre'));
+        notamedsem.innerHTML = Number(sessionStorage.getItem('nota1Bimestre')).toFixed(1);
         if (Number(ssStorageNota1Bimestre) <= 3) {
             resultnotamedsem.innerHTML = 'Muito Baixo';
             resultnotamedsem.style.color = 'red'
@@ -130,13 +130,17 @@ document.addEventListener('mostrandoResultados', () => {
         }
         document.getElementById('recuperacao').classList.remove('hide');
         let notaNecessariaParaFazerFinal = 6 - Number(ssStorageNota1Bimestre)
-        if (notaNecessariaParaFazerFinal < 0) {
+        if (notaNecessariaParaFazerFinal <= 0) {
             document.getElementById('notanecrec').innerHTML = 0
+            document.getElementById('notanecrec').style.backgroundColor = 'green'
+            document.getElementById('notanecrec').style.color = 'white'
         } else {
-            document.getElementById('notanecrec').innerHTML = notaNecessariaParaFazerFinal;
+            document.getElementById('notanecrec').innerHTML = notaNecessariaParaFazerFinal.toFixed(1);
+            document.getElementById('notanecrec').style.backgroundColor = 'white'
+            document.getElementById('notanecrec').style.color = 'black'
         }
         let notaNecessariaNo2Bimestre = 14 - Number(ssStorageNota1Bimestre);
-        document.getElementById('notanecpf').innerHTML = notaNecessariaNo2Bimestre;
+        document.getElementById('notanecpf').innerHTML = notaNecessariaNo2Bimestre.toFixed(1);
         if (notaNecessariaNo2Bimestre > 10) {
             document.getElementById('notanecpf').style.color = 'white'
             document.getElementById('notanecpf').style.backgroundColor = 'red'
