@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <nav>
@@ -15,43 +16,75 @@
         </div>
     </nav>
     <div class="container-principal flex justify-content-center flex-direction-column align-items-center">
-        <div id="defnotas" class="container flex-direction-column gap-10">
-            <div class="container flex-direction-column bloco box-shadow">
-                <h1>Calcular sua média UVV</h1>
-                <div class="flex flex-direction-row justify-content-space-evenly w-100">
-                    <div class="container flex-direction-column">
-                        <h1>1º Bimestre</h1>
-                        <input class="input-circle" id="nota1bim" type="number" min="0" max="10">
+        <div id="defnotas" class="container flex-direction-column gap-10 hide">
+            <div class="flex justify-content-space-between flex-direction-column bloco box-shadow">
+                <div class="flex flex-direction-column h-100 justify-content-space-evenly">
+                    <h1 class="100w">Calcular sua média UVV</h1>
+                    <div class="flex flex-direction-row justify-content-space-evenly w-100">
+                        <div class="container flex-direction-column">
+                            <h1>1º Bimestre</h1>
+                            <input class="input-circle" id="nota1bim" type="number" min="0" max="10" placeholder="0">
+                        </div>
+                        <div class="container flex-direction-column">
+                            <h1>2º Bimestre</h1>
+                            <input class="input-circle" id="nota2bim" type="number" min="0" max="10" placeholder="0" disabled>
+                        </div>
                     </div>
-                    <div class="container flex-direction-column">
-                        <h1 class="titulo-bim">2º Bimestre</h1>
-                        <input class="input-circle" id="nota2bim" type="number" min="0" max="10">
+                    <div class="container flex-direction-column w-100">
+                        <p>Digite um valor entre 0.0 e 10.0!</p>
                     </div>
-            </div>
-                <div class="container flex-direction-row">
-                    <p>Digite um valor entre 0.0 e 10.0!</p>
+                    <div class="flex justify-content-center align-items-center flex-direction-column w-100">
+                        <h1>Opções</h1>
+                        <div>
+                            <input id="testecheck" type="checkbox" name="test" value="oi">
+                            <label for="test">Habilitar 2º Bimestre</label>
+                        </div>
+                    </div>
+                    <div class="flex flex-direction-column w-100 text-align-center">
+                        <h1>Como usar</h1>
+                        <p>Digite suas notas e clique na seta abaixo, habilite o 2º Bimestre somente se já tiver a nota.</p>
+                        <p>Aviso: valores não númerais (como letras) serão considerados como 0.</p>
+                    </div>
                 </div>
             </div>
-            <div class="container bloco flex-direction-column">
-                <button onclick="test()" class="botao">Confirmar</button>
+            <div class="flex bloco-botoes flex-direction-row justify-content-space-between">
+                <button class="botao" disabled><span class="material-symbols-outlined">arrow_left</span></button>
+                <button onclick="proximoCalcUVV('resultados')" class="botao"><span class="material-symbols-outlined">arrow_right</span></button>
             </div>
         </div>
         <div id="resultados" class="container flex-direction-column gap-10 hide">
-            <div class="container flex-direction-column bloco box-shadow">
-                <h1>Calcular sua média UVV</h1>
-                <div class="flex flex-direction-row justify-content-space-evenly w-100">
-                    <div class="container flex-direction-column">
-                        <h1>1º Bimestre</h1>
-                        <input class="input-circle" id="nota1bim" type="number" min="0" max="10">
+            <div class="flex justify-content-evenly flex-direction-column bloco box-shadow">
+                <h1>Resultados</h1>
+                <div class="flex flex-direction-column w-100">
+                    <div class="flex flex-direction-row w-100 justify-content-start align-items-center">
+                        <h1 id="titulomedsem">Sua média semestral</h1>
                     </div>
-                    <div class="container flex-direction-column">
-                        <h1 class="titulo-bim">2º Bimestre</h1>
-                        <input class="input-circle" id="nota2bim" type="number" min="0" max="10">
+                    <div class="flex flex-direction-column justify-content-center w-100 align-items-center">
+                        <p id="notamedsem" class="input-circle flex justify-content-center align-items-center">9</p>
+                        <p id="resultnotamedsem">Aprovado</p>
                     </div>
-            </div>
-                <div class="container flex-direction-row">
-                    <p>Digite um valor entre 0.0 e 10.0!</p>
                 </div>
+                <div id="recuperacao" class="flex flex-direction-column w-100">
+                    <div class="flex flex-direction-row w-100 justify-content-start align-items-center">
+                        <h1>Recuperação</h1>
+                    </div>
+                    <div class="flex flex-direction-row w-100 justify-content-space-evenly align-items-center text-align-center">
+                        <div id="precisafazerrec" class="flex flex-direction-column justify-content-center align-items-center">
+                            <p>Você precisa de:</p>
+                            <p id="notanecrec" class="input-circle flex justify-content-center align-items-center">9</p>
+                            <p>Para fazer a Prova Final</p>
+                        </div>
+                        <div id="parapassarnapf" class="flex flex-direction-column justify-content-center align-items-center text-align-center">
+                            <p>Você precisa de:</p>
+                            <p id="notanecpf" class="input-circle flex justify-content-center align-items-center">9</p>
+                            <p id="descparapassarnapf">Na Prova Final</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex bloco-botoes flex-direction-row justify-content-space-between">
+                <button class="botao" onclick="voltarCalcUVV('defnotas')"><span class="material-symbols-outlined">arrow_left</span></button>
+                <button onclick="proximoCalcUVV()" class="botao" disabled><span class="material-symbols-outlined">arrow_right</span></button>
             </div>
         </div>
     </div>
