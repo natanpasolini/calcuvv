@@ -1,6 +1,8 @@
 function botaoLink(botao) {
     if (botao === 'github') {
         window.open('https://github.com/natanpasolini')
+    } else if (botao === 'star') {
+        window.open('https://github.com/natanpasolini/calcuvv')
     }
 }
 

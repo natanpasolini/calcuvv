@@ -33,7 +33,7 @@
     font-weight: bold;
     border: 0;
     border-radius: 12px;
-    background: transparent;
+    background: var(--background-color);
     transition: 0.3s all ease;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -48,4 +48,31 @@
     background: transparent;
     color: rgba(0, 0, 0, 0.35);
     border: 0;
+}
+
+.botao-star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    width: 95px;
+    height: 38px;
+    border: 0;
+    background: var(--background-color);
+    border-radius: 12px;
+    transition: 0.5s all ease;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.botao-star:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.botao-star svg {
+    transition: 0.7s all ease;
+}
+
+.botao-star:hover svg {
+    fill: white;
 }
