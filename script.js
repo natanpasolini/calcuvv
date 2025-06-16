@@ -103,7 +103,7 @@ document.addEventListener('mostrandoResultados', () => {
         }
         let notaPassarRec = 10 - medSemestral
         document.getElementById('parapassarnapf').classList.remove('hide');
-        document.getElementById('notanecpf').innerHTML = notaPassarRec
+        document.getElementById('notanecpf').innerHTML = notaPassarRec.toFixed(1);
     } else {
         document.getElementById('titulomedsem').innerHTML = 'Sua nota atual';
         notamedsem.innerHTML = Number(sessionStorage.getItem('nota1Bimestre')).toFixed(1);
