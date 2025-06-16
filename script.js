@@ -69,6 +69,10 @@ function slideIn() {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('defnotas').classList.toggle('hide');
+    sessionStorage.setItem('nota1Bimestre', 0);
+    sessionStorage.setItem('nota2Bimestre', 0);
+    sessionStorage.setItem('fez2Bimestre', false);
+    document.getElementById('check2Bim').checked = false
     slideIn();
 } )
 
@@ -152,7 +156,7 @@ document.addEventListener('mostrandoResultados', () => {
     }
 })
 
-document.getElementById('testecheck').addEventListener('change', function() {
+document.getElementById('check2Bim').addEventListener('change', function() {
     if (this.checked) {
         document.getElementById('nota2bim').removeAttribute('disabled')
         sessionStorage.setItem('fez2Bimestre', true)
