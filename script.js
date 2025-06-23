@@ -3,6 +3,8 @@ function botaoLink(botao) {
         window.open('https://github.com/natanpasolini')
     } else if (botao === 'star') {
         window.open('https://github.com/natanpasolini/calcuvv')
+    } else if (botao === 'commit') {
+        window.open('https://github.com/natanpasolini/calcuvv/commits/main/')
     }
 }
 
@@ -23,8 +25,8 @@ function proximoCalcUVV(value) {
 document.addEventListener('irParaResultados', () => {
     const nota1Input = document.getElementById('nota1bim');
     const nota2Input = document.getElementById('nota2bim');
-    const nota1BIM = Number(nota1Input.value);
-    const nota2BIM = Number(nota2Input.value);
+    const nota1BIM = Number(nota1Input.value.replace(',', '.'));
+    const nota2BIM = Number(nota2Input.value.replace(',', '.'));
     const defNotas = document.getElementById('defnotas');
     const resultados = document.getElementById('resultados');
     let nota1valid = true;
@@ -74,6 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionStorage.setItem('fez2Bimestre', false);
     document.getElementById('check2Bim').checked = false
     slideIn();
+    fetch('https://api.github.com/repos/natanpasolini/calcuvv/commits?per_page=1')
+        .then(res => res.json())
+        .then(res => {
+    document.getElementById('commit').innerHTML = ('#' + res[0].sha.substring(0, 7))
+  });
 } )
 
 document.addEventListener('mostrandoResultados', () => {
