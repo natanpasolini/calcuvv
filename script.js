@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('mostrandoResultados', () => {
     const notamedsem = document.getElementById('notamedsem');
     const resultnotamedsem = document.getElementById('resultnotamedsem');
-    const ssStorageNota1Bimestre = sessionStorage.getItem('nota1Bimestre');
-    const ssStorageNota2Bimestre = sessionStorage.getItem('nota2Bimestre');
-    let medSemestral = (Number(ssStorageNota1Bimestre) + Number(ssStorageNota2Bimestre)) / 2;
+    const ssStorageNota1Bimestre = sessionStorage.getItem('nota1Bimestre').replace(',', '.');
+    const ssStorageNota2Bimestre = sessionStorage.getItem('nota2Bimestre').replace(',', '.');
+    let medSemestral = (Number(ssStorageNota1Bimestre) + Number(ssStorageNota2Bimestre) / 2);
     if (sessionStorage.getItem('fez2Bimestre') === 'true') {
         document.getElementById('notanecpf').style.color = 'black'
         document.getElementById('notanecpf').style.backgroundColor = 'white'
@@ -117,7 +117,7 @@ document.addEventListener('mostrandoResultados', () => {
         document.getElementById('notanecpf').innerHTML = notaPassarRec.toFixed(1);
     } else {
         document.getElementById('titulomedsem').innerHTML = 'Sua nota atual';
-        notamedsem.innerHTML = Number(sessionStorage.getItem('nota1Bimestre')).toFixed(1);
+        notamedsem.innerHTML = Number(ssStorageNota1Bimestre).toFixed(1);
         if (Number(ssStorageNota1Bimestre) <= 3) {
             resultnotamedsem.innerHTML = 'Muito Baixo';
             resultnotamedsem.style.color = 'red'
