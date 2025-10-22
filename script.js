@@ -88,7 +88,7 @@ document.addEventListener('mostrandoResultados', () => {
     const resultnotamedsem = document.getElementById('resultnotamedsem');
     const ssStorageNota1Bimestre = sessionStorage.getItem('nota1Bimestre').replace(',', '.');
     const ssStorageNota2Bimestre = sessionStorage.getItem('nota2Bimestre').replace(',', '.');
-    let medSemestral = (Number(ssStorageNota1Bimestre) + Number(ssStorageNota2Bimestre) / 2);
+    let medSemestral = ((Number(ssStorageNota1Bimestre) + Number(ssStorageNota2Bimestre)) / 2);
     if (sessionStorage.getItem('fez2Bimestre') === 'true') {
         document.getElementById('notanecpf').style.color = 'black'
         document.getElementById('notanecpf').style.backgroundColor = 'white'
