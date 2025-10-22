@@ -118,16 +118,21 @@ document.addEventListener('mostrandoResultados', () => {
     } else {
         document.getElementById('titulomedsem').innerHTML = 'Sua nota atual';
         notamedsem.innerHTML = Number(ssStorageNota1Bimestre).toFixed(1);
-        if (Number(ssStorageNota1Bimestre) <= 3) {
-            resultnotamedsem.innerHTML = 'Muito Baixo';
+        if (Number(ssStorageNota1Bimestre) <= 4) {
+            resultnotamedsem.innerHTML = 'Risco de Reprovação';
             resultnotamedsem.style.color = 'red'
             notamedsem.style.color = 'white';
             notamedsem.style.backgroundColor = 'red';
         } else if (Number(ssStorageNota1Bimestre) < 7) {
-            resultnotamedsem.innerHTML = 'Bom';
+            resultnotamedsem.innerHTML = 'Recuperável';
             resultnotamedsem.style.color = 'blue'
             notamedsem.style.color = 'white';
             notamedsem.style.backgroundColor = 'blue';
+        } else if (Number(ssStorageNota1Bimestre) < 8) {
+            resultnotamedsem.innerHTML = 'Bom!';
+            resultnotamedsem.style.color = 'green'
+            notamedsem.style.color = 'white';
+            notamedsem.style.backgroundColor = 'green';
         } else if (Number(ssStorageNota1Bimestre) < 10) {
             resultnotamedsem.innerHTML = 'Ótimo!';
             resultnotamedsem.style.color = 'green'
